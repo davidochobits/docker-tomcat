@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tomcat-users xmlns="http://tomcat.apache.org/xml"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://tomcat.apache.org/xml tomcat-users.xsd"
+              version="1.0">
+  <!--
+    Por seguridad, esta imagen NO trae usuarios activos por defecto.
+
+    Para habilitar el Manager, monta tu propio fichero en tiempo de ejecución:
+
+      docker run -v $(pwd)/tomcat-users.xml:/opt/tomcat/conf/tomcat-users.xml:ro ...
+
+    Ejemplo de usuario (descoméntalo en TU copia, con una contraseña fuerte):
+
+    <role rolename="manager-gui"/>
+    <role rolename="admin-gui"/>
+    <user username="CAMBIAME" password="CAMBIAME" roles="manager-gui,admin-gui"/>
+
+    Recuerda que las apps manager y host-manager restringen por defecto el
+    acceso a localhost (webapps/manager/META-INF/context.xml).
+  -->
+</tomcat-users>

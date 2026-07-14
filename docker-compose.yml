@@ -1,0 +1,32 @@
+# docker compose up -d
+#
+# Por defecto usa la imagen publicada en Docker Hub (variante AlmaLinux 9).
+# Para la variante Rocky Linux 9, cambia el tag a: davidpenya77/tomcat:11-rocky9
+# Para construir en local desde el Dockerfile, comenta "image" y descomenta "build".
+
+services:
+  tomcat:
+    image: davidpenya77/tomcat:11-alma9
+    # build:
+    #   context: .
+    #   args:
+    #     BASE_IMAGE: almalinux:9-minimal   # o rockylinux/rockylinux:9-minimal
+    #     TOMCAT_MAJOR: "11"
+    #     TOMCAT_VERSION: "11.0.24"
+    container_name: tomcat
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    volumes:
+      # Despliega tus aplicaciones dejando los .war en ./webapps
+      - ./webapps:/opt/tomcat/webapps
+      # Logs accesibles desde el host
+      - ./logs:/opt/tomcat/logs
+      # Para habilitar el Manager, descomenta y crea tu tomcat-users.xml
+      # (ver ejemplo comentado en el del repo; nunca uses admin/admin):
+      # - ./tomcat-users.xml:/opt/tomcat/conf/tomcat-users.xml:ro
+    environment:
+      # Ajusta la memoria de la JVM a tu gusto
+      CATALINA_OPTS: "-Xms256m -Xmx512m"
+      # Ajusta a tu zona horaria
+      TZ: "Europe/Madrid"

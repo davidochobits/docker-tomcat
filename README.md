@@ -13,8 +13,8 @@ Imagen en Docker Hub: [`davidpenya77/tomcat`](https://hub.docker.com/r/davidpeny
 
 | Tag | Base | Tomcat | Java |
 |---|---|---|---|
-| `latest`, `11`, `11-alma9`, `11.0.24-alma9` | AlmaLinux 9 minimal | 11.0.x | OpenJDK 21 |
-| `11-rocky9`, `11.0.24-rocky9` | Rocky Linux 9 minimal | 11.0.x | OpenJDK 21 |
+| `latest`, `11`, `11-alma9`, `11.0.26-alma9` | AlmaLinux 9 minimal | 11.0.x | OpenJDK 21 |
+| `11-rocky9`, `11.0.26-rocky9` | Rocky Linux 9 minimal | 11.0.x | OpenJDK 21 |
 
 Ambas variantes se construyen desde el mismo `Dockerfile`; solo cambia la
 imagen base (`--build-arg BASE_IMAGE=...`). Funcionalmente son equivalentes.
@@ -59,9 +59,12 @@ docker build --build-arg BASE_IMAGE=rockylinux/rockylinux:9-minimal \
              -t davidpenya77/tomcat:11-rocky9 .
 
 # Otra versión de Tomcat (ejemplo: Tomcat 9 para apps javax.* legacy)
-docker build --build-arg TOMCAT_MAJOR=9 --build-arg TOMCAT_VERSION=9.0.120 \
+docker build --build-arg TOMCAT_MAJOR=9 --build-arg TOMCAT_VERSION=9.0.122 \
              -t davidpenya77/tomcat:9-alma9 .
 ```
+
+> Tomcat 9 deja de recibir actualizaciones de seguridad el 31 de marzo de 2027.
+> Úsalo solo como solución temporal mientras migras la aplicación a Jakarta EE.
 
 ## Migración desde Tomcat 8/9 (javax → jakarta)
 

@@ -15,7 +15,7 @@ on:
 env:
   IMAGE: davidpenya77/tomcat
   TOMCAT_MAJOR: '11'
-  TOMCAT_VERSION: '11.0.24'
+  TOMCAT_VERSION: '11.0.26'
 
 jobs:
   build:

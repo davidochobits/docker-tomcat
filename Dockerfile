@@ -18,7 +18,7 @@ ARG BASE_IMAGE=almalinux:9-minimal
 FROM ${BASE_IMAGE}
 
 ARG TOMCAT_MAJOR=11
-ARG TOMCAT_VERSION=11.0.24
+ARG TOMCAT_VERSION=11.0.26
 
 LABEL org.opencontainers.image.title="tomcat" \
       org.opencontainers.image.description="Apache Tomcat ${TOMCAT_VERSION} con OpenJDK 21 sobre EL9 (AlmaLinux/Rocky Linux)" \

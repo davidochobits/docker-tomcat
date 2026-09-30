@@ -11,7 +11,7 @@
 #                  -t davidpenya77/tomcat:11-rocky9 .
 #
 #   Otra versión de Tomcat:
-#     docker build --build-arg TOMCAT_MAJOR=9 --build-arg TOMCAT_VERSION=9.0.120 \
+#     docker build --build-arg TOMCAT_MAJOR=9 --build-arg TOMCAT_VERSION=9.0.122 \
 #                  -t davidpenya77/tomcat:9-alma9 .
 
 ARG BASE_IMAGE=almalinux:9-minimal
